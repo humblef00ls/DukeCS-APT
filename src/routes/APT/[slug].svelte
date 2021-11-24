@@ -1,9 +1,11 @@
+
 <script>
 	import { page } from '$app/stores';
 	import { data } from '$store/isSpecial.js';
 	import Editor from '$lib/Editor.svelte';
-
-    
+	import Submission from '$lib/Submission.svelte';
+    import { submitting } from '$store';
+    $submitting  = false
     
   
 </script>
@@ -11,6 +13,10 @@
 <!-- {$page.params.slug} -->
 <!-- {JSON.stringify(data)} -->
 
+<Submission />
+<svelte:head>
+<title>CompSci 101, Fall 2021 APT  {data.name} </title>
+</svelte:head>
 
 <main>
 	<section class="info">

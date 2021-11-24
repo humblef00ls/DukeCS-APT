@@ -1,15 +1,15 @@
 <script>
 	import '../app.css';
+    import { submitting } from '$store';
 
+    import {page } from '$app/stores';
 
-	import Submission from '$lib/Submission.svelte';
+    $: console.log($page.path)
 </script>
 
 <main>
 	
-		<Submission />
-
-
+	
 	<slot />
 </main>
 

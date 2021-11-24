@@ -1,7 +1,9 @@
 <script>
 	import { apts } from '$store/apts.js';
 </script>
-
+<svelte:head>
+<title>CompSci 101, Fall 2021 APTs</title>
+</svelte:head>
 <main>
 	<h1>CompSci 101, Fall 2021 APTs</h1>
 	<p>This is the webpage for grading and submitting your APTs.</p>
@@ -33,15 +35,29 @@
 			</div>
 		</section>
 	{/each}
+    <footer>
+        Made by <a href="https://aparimeya.xyz">Aparimeya Taneja</a>
+        </footer>
 </main>
 
+
 <style>
+ footer{
+   
+    margin-top: 50px;
+        width: 100%;
+        text-align: center;
+        opacity: 0.33;
+        letter-spacing: 2px;
+        color: var(--accent);
+ }
 
 	main {
 		display: flex;
 		flex-direction: column;
 		padding: 8vw;
 		padding-top: 25px;
+        padding-bottom: 30px;
         overflow-y: auto;
         height: 100vh;
         width: 100vw;
@@ -119,10 +135,11 @@
 		transform: translateY(-50%);
 	}
 	.correct {
-		background: rgba(0, 179, 0, 0.9);
+		background: var(--green)
 	}
 	.wrong {
-		background: rgba(255, 17, 0, 0.9);
+		background: var(--red)
+        
 	}
 	.sub-link {
 		font-weight: 800;

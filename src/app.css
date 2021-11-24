@@ -7,7 +7,12 @@
     --text-inv: white;
     --back: #d3dceb;
     --section:rgba(242,242,242,1);
+    --green:rgba(0, 179, 0, 1);
+    --red:rgba(255, 17, 0, 1);
+    --green-l:rgba(0, 179, 0, .1);
+    --red-l:rgba(255, 17, 0, .1);
 }
+
 *{
     font-family: 'Outfit', sans-serif;
     /* font-family: 'Lato', sans-serif; */
@@ -28,18 +33,20 @@ body{
 		font-weight: 400;
 		font-size: 3.5rem;
 		letter-spacing: 4px;
-        text-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+        text-shadow: 2px 3px 5px rgba(0,0,0,0.1);
 	}
 	h2 {
 		font-size: 1.75rem;
 		letter-spacing: 2px;
 		margin-right: 10px;
+        text-shadow: 2px 3px 5px rgba(0,0,0,0.1);
 	}
 	h3 {
 		font-size: 1rem;
 		font-weight: 400;
 		letter-spacing: 1px;
 		font-weight: 500;
+
 	}
 
 
