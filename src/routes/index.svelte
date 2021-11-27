@@ -64,6 +64,7 @@
 	{:else}
 		<p>This is the webpage for grading and submitting your APTs.</p>
 	{/if}
+	<div class="btnsx">
 	<button on:click={() => (previous = !previous)} class="sub-link">
 		{#if previous}
 			<svg
@@ -82,6 +83,13 @@
 			Past Submissions
 		{/if}
 	</button>
+	<!-- {#if !previous}
+	<button on:click={() => (previous = !previous)} class="sub-link"> 
+			Group By
+	</button>
+
+	{/if} -->
+</div>	
 
 	{#if previous}
 		<Submissions />
@@ -105,8 +113,21 @@
 									}`}
 								/>
 								<h3>{aptp.name}</h3>
-								{#if aptp.description != ''}
-									<p>{aptp.description}</p>
+								{#if aptp.tags.length > 0}
+									<div class="tags">
+										{#each aptp.tags.includes('Required') ? [ ...aptp.tags.filter( x => x != 'Required') , 'Required' ]: aptp.tags as tag}
+											<span>
+												{#if tag=='Required'}
+
+												<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"  stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icox"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+												{:else}
+												{tag}
+												{/if}
+											
+											</span>
+										{/each}
+									</div>
+		
 								{/if}
 							</div>
 						</a>
@@ -121,6 +142,11 @@
 </main>
 
 <style>
+	.icox{
+		stroke: none;
+		fill: var(--accent);
+		transform: scale(.8);
+	}
 	.arrow {
 		transform: rotate(180deg) translateX(260%);
 		fill: var(--back);
@@ -162,7 +188,7 @@
 		padding-top: 30px;
 		background: var(--section);
 
-		box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+		box-shadow: rgba(98, 103, 109, 0.2) 0px 8px 24px;
 		color: var(--text);
 		border-radius: 25px;
 		margin-top: 20px;
@@ -179,15 +205,15 @@
 	.apt-item {
 		background: var(--accent);
 		color: var(--back);
-		padding-left: 45px;
+		padding-left: 55px;
 		padding-right: 25px;
 		border-radius: 20px;
 		margin-right: 20px;
 		display: flex;
 		flex-direction: row;
 		flex-wrap: nowrap;
-		height: 50px;
-		line-height: 50px;
+		height: 60px;
+		line-height: 60px;
 		justify-content: center;
 		margin-top: 20px;
 		box-shadow: rgb(0 0 0 / 10%) 0px 4px 12px;
@@ -207,10 +233,35 @@
 		justify-content: flex-start;
 	}
 
-	.apt-item p {
-		margin-left: 30px;
+	.apt-item .tags {
+		margin-left: 10px;
 		font-weight: 100;
-		opacity: 0.5;
+		
+	}
+	.tags{
+		display: flex;
+		flex-direction: row;
+		flex-wrap: nowrap;
+		justify-content: flex-start;
+		opacity: 0.95;
+	}
+	.tags span {
+		margin-left: 15px;
+		margin-right: -5px;
+
+		font-size: 0.8rem;
+		font-weight: 100;
+		background-color: var(--back);
+		color: var(--accent);
+		height: 34px;
+		line-height: 30px;
+		padding-left: 15px;
+		padding-right: 15px;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		border-radius: 10px;
+
 	}
 	.apt-status {
 		width: 20px;
@@ -221,9 +272,9 @@
 		justify-content: center;
 		align-items: center;
 		position: absolute;
-		left: 15px;
-		background: rgba(125, 125, 125, 0.4);
-		top: 50%;
+		left: 20px;
+		background: var(--section);
+				top: 50%;
 		transform: translateY(-50%);
 	}
 	.correct {
@@ -266,14 +317,19 @@
 		align-items: center;
 		justify-content: space-between;
 	}
-	.btns {
+	.btns,.btnsx {
 		transform: translateY(4px);
 		display: flex;
 		flex-direction: row;
 		flex-wrap: nowrap;
 		align-items: center;
 	}
-
+	.btnsx {
+		margin-bottom: 10px;
+	}
+	.btnsx button{
+		margin-right: 20px;
+	}
 	.btns button {
 		min-width: unset;
 		padding-left: 20px;

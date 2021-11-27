@@ -21,9 +21,13 @@
 <main>
 	<section class="info">
 		<h1>{data.name}</h1>
-		<p class="descp">{data.description}</p>
+		<p class="descp">
+			{#each data.tags as tag}
+				<span class="tag">{tag}</span>
+			{/each}
+		</p>
 		<div class="question">
-			<h2>Problem Statement</h2>
+
 			<p class="prob">{data.problem}</p>
             </div>
             <div class="question">
@@ -49,6 +53,17 @@
 </main>
 
 <style>
+	.tag{
+		background: #f5f5f5;
+		border-radius: 5px;
+		color: #333;
+		display: inline-block;
+		font-size: 12px;
+		font-weight: bold;
+		margin-right: 10px;
+		padding: 7px 10px;
+	
+	}
 	main {
 		display: flex;
 		height: 100vh;
@@ -72,12 +87,12 @@
 	}
 
 	.descp {
-		margin-top: 10px;
-		margin-bottom: 10px;
+		margin-top: 15px;
+		margin-bottom: 15px;
 		opacity: 0.65;
 	}
 	.question {
-		padding: 30px;
+		padding: 25px;
         
         padding-left: 40px;
         padding-right: 40px;
@@ -99,13 +114,19 @@
   white-space: -pre-wrap;
   white-space: -o-pre-wrap;
   word-wrap: break-word;
+  padding: 10px;
+  font-family: 'Courier New', monospace;
+  font-size: .9rem;
+  font-weight: 500;
 
     }
+	li:nth-of-type(2n-1) pre{
+		background: var(--section-f)
+	}
+	h2{
+		margin-top: 10px;
+	}
 
-    .question *{
-        line-height: 33px;
-    }
-    h2{
-        margin-top: 10px;
-    }
+
+ 
 </style>

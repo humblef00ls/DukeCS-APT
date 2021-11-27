@@ -17,11 +17,14 @@
     
 </script>
 
+{#if $lightMode !== undefined}
 <main>
 	
 	
 	<slot />
 </main>
+
+{/if}
 
 <svg class="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 153.82 179.19"
 	><g id="Layer_2" data-name="Layer 2"
@@ -42,7 +45,7 @@
 <style>
 
 	.logo {
-		fill: var(--text-inv);
+		fill: var(--section-f);
 		position: fixed;
 		opacity: 0.75;
 		height: 120vh;

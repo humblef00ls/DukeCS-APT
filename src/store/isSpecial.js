@@ -1,6 +1,7 @@
 export const data = {
     name: "isSpecial",
     description: "Additional info and notes",
+    tags:[ 'Lecture 12', 'Required'],
     problem: "Some people have dietary restrictions because of health issues, some because of religious issues, and some for ethical, moral, or other reasons. You must write the function lovely that determines how many of the individual ingredients in some food/recipe are edible. The String inedible is a white-space delimited list of inedible food-stuffs. Any ingredient that's not listed in inedible is, therefore, edible.",
     constraints: [
         "All characters in inedible and ingredients are upper or lower case 'A'-'Z', 'a'-z'",
@@ -21,7 +22,7 @@ export const result = {
     tests:[
         {
             id: 1,
-            pass:false,
+            pass:true,
             expected:"2",
             got:"6",
             input:'"honey sugar" "rice milk potato"'

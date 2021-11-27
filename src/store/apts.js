@@ -10,27 +10,32 @@ export const apts = [
             {
                 name: "DivToZero",
                 description: "required, helper function useful, in Lecture 12",
-                status: "correct"
+                status: "correct",
+                tags:[ 'Lecture 12', 'Required'],
             },
             {
                 name: "Yahtzee",
                 description: "",
-                status: "correct"
+                status: "correct",
+                tags:[]
             },
             {
                 name: "OneHeapNim",
                 description: "",
-                status: "wrong"
+                status: "wrong",
+                tags:[]
             },
             {
                 name: "HingedDoor",
                 description: "",
-                status: ""
+                status: "",
+                tags:['Required']
             },
             {
                 name: "Pancakes",
                 description: "",
-                status: "whateve"
+                status: "whateve",
+                tags:['Required']
             },
         ]
     },
@@ -42,37 +47,44 @@ export const apts = [
             {
                 name: "IsSpecial",
                 description: "",
-                status: "correct"
+                status: "correct",
+                tags:[]
             },
             {
                 name: "MorseLikeCode",
                 description: "Lab 05, parallel lists",
-                status: "correct"
+                status: "correct",
+                tags:['Lab 05', 'Parallel Lists']
             },
             {
                 name: "Pikachu",
                 description: "while loop maybe",
-                status: "wrong"
+                status: "wrong",
+                tags:['While Loop']
             },
             {
                 name: "Calculator",
                 description: "",
-                status: ""
+                status: "",
+                tags:['Required']
             },
             {
                 name: "Family",
                 description: "Challenge, in Lecture 13",
-                status: "whateve"
+                status: "whateve",
+                tags:['Challenge', 'Lecture 13']
             },
             {
                 name: "TxMsg",
                 description: "required, helper function useful, in Lecture 12",
-                status: "wrong"
+                status: "wrong",
+                tags:['Required', 'Lecture 12']
             },
             {
                 name: "ScoreIt",
                 description: "required, helper function useful",
-                status: "correct"
+                status: "correct",
+                tags:['Required', 'Lecture 12']
             },
         ]
     },
@@ -84,39 +96,46 @@ export const apts = [
             {
                 name: "IsSpecial",
                 description: "",
-                status: "correct"
+                status: "correct",
+                tags:[]
             },
             {
                 name: "MorseLikeCode",
                 description: "Lab 05, parallel lists",
-                status: "correct"
+                status: "correct",
+                tags:['Lab 05', 'Parallel Lists']
             },
             {
                 name: "Pikachu",
                 description: "while loop maybe",
-                status: "wrong"
+                status: "wrong",
+                tags:['While Loop']
             },
             {
                 name: "Calculator",
                 description: "",
-                status: ""
+                status: "",
+                tags:['Required']
             },
             {
                 name: "Family",
                 description: "Challenge, in Lecture 13",
-                status: "whateve"
+                status: "whateve",
+                tags:['Challenge', 'Lecture 13']
             },
             {
                 name: "TxMsg",
                 description: "required, helper function useful, in Lecture 12",
-                status: "wrong"
+                status: "wrong",
+                tags:['Required', 'Lecture 12']
             },
             {
                 name: "ScoreIt",
                 description: "required, helper function useful",
-                status: "correct"
+                status: "correct",
+                tags:['Required', 'Lecture 12']
             },
         ]
-    }
+    },
 
 ];

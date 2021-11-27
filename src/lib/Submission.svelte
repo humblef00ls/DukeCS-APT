@@ -10,8 +10,9 @@
 	<h2>Results</h2>
     <button on:click={()=>$submitting=false}>Close</button>
     <div class="bar">
-        <span class={`progress ${num_correct == result.tests.length ? 'correct' : 'wrong'}`} style={`width:${Math.floor( (num_correct/result.tests.length)*100 )}%`}> </span>
-        <span class={`total-correct ${num_correct == result.tests.length ? 'correct-t' : 'wrong-t'}`}>{num_correct}/{result.tests.length}</span>
+       
+        <span class={`progress ${num_correct == result.tests.length ? 'correct' : num_correct >= Math.floor(result.tests.length/2) ? 'medium' : 'wrong'}`} style={`width:${Math.floor( (num_correct/result.tests.length)*100 )}%`}> </span>
+        <span class={`total-correct ${num_correct == result.tests.length ? 'correct-t' : num_correct >= Math.floor(result.tests.length/2) ? 'medium-t' : 'wrong-t'}`}>{num_correct}/{result.tests.length}</span>
     </div>
     <section>
         {#each result.tests as test}
@@ -31,7 +32,7 @@
         background: var(--section-f);
         border-radius: 25px;
         padding: 30px;
-        height: calc(60vh);
+        
         overflow-y: scroll;
     }
 	main {
@@ -40,7 +41,7 @@
 		top: 100vh;
 		left: calc(40vw + 15px);
 		width: calc(60vw - 30px);
-		height: 50vh;
+		height: 55vh;
 		display: flex;
 		transition: 350ms ease-out;
 		padding: 40px;
@@ -91,6 +92,10 @@
 		background: var(--red);
 
 	}
+    .medium{
+        background: var(--yellow);
+    }
+
     .correct-t {
 
         color: var(--green);
@@ -98,5 +103,9 @@
     .wrong-t {
 
         color: var(--red);
+    }
+    .medium-t {
+
+        color: var(--yellow);
     }
 </style>

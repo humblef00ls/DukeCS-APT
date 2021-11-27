@@ -73,8 +73,14 @@
  </div>
  {:else}
  <div class="buttons">
+     <span>
     <button class="save" on:click={handleSubmit}> Submit</button>
     <button class="cancel">Debug</button>
+</span>
+<span>
+    <button class="prev"> Previous</button>
+    <button class="next"> Next</button>
+</span>
 </div>
 {/if}
 <div bind:this={divEl} class="h-screen"  style="height:calc(100vh - 75px)" id="coder"/>
@@ -82,6 +88,14 @@
 
 
 <style>
+    a{
+        text-decoration: none;
+        color: var(--text);
+        background-color: var(--back);
+        padding: 10px 15px; 
+        border-radius: 54px;
+
+    }
     .loader{
         height: 100vh;
         width: 60vw;
@@ -109,11 +123,12 @@
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: center;
     height: 75px;
     background: #1e1e1e;
     padding-left: 25px;
+    padding-right: 25px;
     }
     button{
 

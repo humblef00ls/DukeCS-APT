@@ -10,8 +10,9 @@
     --section-f:rgba(0,0,0,0.05);
     --green:rgba(0, 179, 0, 1);
     --red:rgba(255, 17, 0, 1);
-    --green-l:rgba(0, 179, 0, .1);
-    --red-l:rgba(255, 17, 0, .1);
+    --green-l:rgba(0, 179, 0, .2);
+    --red-l:rgba(255, 17, 0, .23);
+    --yellow:rgb(255, 224, 75);
 }
 
 *{
@@ -85,5 +86,10 @@ body{
     }
     button:hover{
         stroke: var(--text-inv);
+        
         color: var(--text-inv);
+    }
+    button:active{
+        transform: translateY(2px);
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
     }
