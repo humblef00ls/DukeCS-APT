@@ -7,6 +7,7 @@
     --text-inv: white;
     --back: #d3dceb;
     --section:rgba(242,242,242,1);
+    --section-f:rgba(0,0,0,0.05);
     --green:rgba(0, 179, 0, 1);
     --red:rgba(255, 17, 0, 1);
     --green-l:rgba(0, 179, 0, .1);
@@ -18,6 +19,7 @@
     /* font-family: 'Lato', sans-serif; */
     box-sizing: border-box;
     margin: 0px;
+
 }
 #coder *{
 font-family:unset
@@ -28,6 +30,7 @@ body{
      background: var(--back);
 
     }
+
 
 	h1 {
 		font-weight: 400;
@@ -81,6 +84,6 @@ body{
         transition-timing-function: ease-out;
     }
     button:hover{
-   
+        stroke: var(--text-inv);
         color: var(--text-inv);
     }

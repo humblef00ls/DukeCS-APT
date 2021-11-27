@@ -28,7 +28,7 @@
 
     section{
         margin-top: 50px;
-        background: rgba(0,0,0,0.05);
+        background: var(--section-f);
         border-radius: 25px;
         padding: 30px;
         height: calc(60vh);
@@ -40,7 +40,7 @@
 		top: 100vh;
 		left: calc(40vw + 15px);
 		width: calc(60vw - 30px);
-		height: 80vh;
+		height: 50vh;
 		display: flex;
 		transition: 350ms ease-out;
 		padding: 40px;

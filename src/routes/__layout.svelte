@@ -1,10 +1,20 @@
 <script>
 	import '../app.css';
-    import { submitting } from '$store';
+    import { submitting,lightMode } from '$store';
+	import {onMount} from 'svelte'
+	import {setColors} from '$lib/utils'
+     import {page } from '$app/stores';
 
-    import {page } from '$app/stores';
 
-    $: console.log($page.path)
+	 onMount(() => {
+
+
+		 $lightMode = JSON.parse(window.localStorage.getItem('lightMode')) ?? true;
+		setColors($lightMode)
+	});
+
+
+    
 </script>
 
 <main>
@@ -30,10 +40,11 @@
 >
 
 <style>
+
 	.logo {
-		fill: white;
+		fill: var(--text-inv);
 		position: fixed;
-		opacity: 0.5;
+		opacity: 0.75;
 		height: 120vh;
 		top: 0px;
 		left: 0px;

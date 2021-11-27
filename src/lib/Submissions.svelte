@@ -4,12 +4,12 @@
 <svelte:head>
 <title>CompSci 101, Fall 2021 APT submissions</title>
 </svelte:head>
-<main>
-    <h1>Past Submissions</h1>
+
+
     <section>
         <div class="submission capx">
             <p>Problem</p>
-            <p>Score</p>
+            <p>Tests Passed</p>
             <p>Timestamp</p>
         </div>
 
@@ -21,7 +21,6 @@
     </div>
     {/each}
 </section>
-</main>
 
 
 
@@ -66,7 +65,7 @@
         border-radius: 25px 25px 0 0;
     }
     .submission:nth-child(2n){
-        background: rgba(0,0,0,0.03);
+        background: var(--section-f);
     }
     .submission:last-child{
         border-radius: 0 0 25px 25px;
