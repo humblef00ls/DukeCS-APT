@@ -1,3 +1,5 @@
+<!-- Past submissions section, ideally will be changed to a table. -->
+
 <script>
    import {submissions} from '$store/submissions.js'
 </script>
@@ -72,11 +74,11 @@
     }
     .correct-t {
 
-color: var(--green);
+color: var(--descriptionct);
 }
 .wrong-t {
 
-color: var(--red);
+color: var(--wrong);
 }
 .score{
     padding: 10px;
@@ -86,9 +88,9 @@ color: var(--red);
     letter-spacing: 2px;
 }
 .gl{
-    background: var(--green-l);
+    background: var(--descriptioniption-l);
 }
 .rl{
-    background: var(--red-l);
+    background: var(--wrong-l);
 }
 </style>

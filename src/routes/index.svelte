@@ -1,3 +1,6 @@
+<!-- Main page file, code rendered on the home page and past submissions section is here
+See lib to see the components rendered here  -->
+
 <script>
 	import { apts } from '$store/apts.js';
 	import { page } from '$app/stores';
@@ -11,6 +14,8 @@
 		setColors($lightMode);
 		
 	}
+	let help = false
+	let tagview = false
 </script>
 
 <svelte:head>
@@ -38,7 +43,7 @@
 				{/if}
 
 			</button>
-			<button>
+			<button on:click={()=>help = !help}>
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
 					width="24"
@@ -55,7 +60,15 @@
 						y2="17"
 					/></svg
 				>
+				
 			</button>
+			{#if help}
+				<div class="helper">
+						<p> Helpful</p>
+						<p> Items</p>
+						<p> Here</p>
+				</div>
+			{/if}
 		</div>
 	</header>
 
@@ -83,12 +96,17 @@
 			Past Submissions
 		{/if}
 	</button>
-	<!-- {#if !previous}
-	<button on:click={() => (previous = !previous)} class="sub-link"> 
-			Group By
+	{#if !previous}
+	<button on:click={() => (tagview = !tagview)} class="sub-link"> 
+		{#if tagview}
+		Group By Section
+		{:else}
+		Group By Tag
+		{/if}
+			
 	</button>
 
-	{/if} -->
+	{/if}
 </div>	
 
 	{#if previous}
@@ -142,6 +160,16 @@
 </main>
 
 <style>
+	.helper{
+		background-color: var(--accent);
+		color: var(--text-inv);
+		position: absolute;
+		top: calc(100% + 15px);
+		right: 0px;
+		padding: 20px;
+		border-radius: 15px;
+		
+	}
 	.icox{
 		stroke: none;
 		fill: var(--accent);
@@ -278,10 +306,10 @@
 		transform: translateY(-50%);
 	}
 	.correct {
-		background: var(--green);
+		background: var(--correct);
 	}
 	.wrong {
-		background: var(--red);
+		background: var(--wrong);
 	}
 	.sub-link {
 		font-weight: 800;
@@ -323,6 +351,7 @@
 		flex-direction: row;
 		flex-wrap: nowrap;
 		align-items: center;
+		position: relative;
 	}
 	.btnsx {
 		margin-bottom: 10px;

@@ -1,3 +1,5 @@
+// Read svelte-kit documentation on how to change adapters from static to various other ones
+// Custom $store import added 
 /** @type {import('@sveltejs/kit').Config} */
 import path from 'path';
 import adapter from '@sveltejs/adapter-static';

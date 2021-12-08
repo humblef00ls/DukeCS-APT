@@ -1,3 +1,7 @@
+
+<!-- Svelte code that is kind of "always mounted". 
+Mostly used for initializing user saved settings. -->
+
 <script>
 	import '../app.css';
     import { submitting,lightMode } from '$store';

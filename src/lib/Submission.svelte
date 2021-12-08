@@ -1,9 +1,12 @@
+<!-- Returned results from grader -->
+
 <script>
 	import { submitting } from '$store';
     import Testcase from '$lib/Testcase.svelte';
+    import Testwindow from '$lib/Testwindow.svelte';
     import {result} from '$store/isSpecial';
     $:  num_correct = result.tests.filter(x=> x.pass ).length
-    
+    let inx = 0;
 </script>
 
 <main class:up={$submitting}>
@@ -11,29 +14,61 @@
     <button on:click={()=>$submitting=false}>Close</button>
     <div class="bar">
        
-        <span class={`progress ${num_correct == result.tests.length ? 'correct' : num_correct >= Math.floor(result.tests.length/2) ? 'medium' : 'wrong'}`} style={`width:${Math.floor( (num_correct/result.tests.length)*100 )}%`}> </span>
-        <span class={`total-correct ${num_correct == result.tests.length ? 'correct-t' : num_correct >= Math.floor(result.tests.length/2) ? 'medium-t' : 'wrong-t'}`}>{num_correct}/{result.tests.length}</span>
+        <span class={`progress ${num_correct == result.tests.length || true? 'correct' : num_correct >= Math.floor(result.tests.length/2) ? 'medium' : 'wrong'}`} style={`width:${Math.floor( (num_correct/result.tests.length)*100 )}%`}> </span>
+        <span class={`total-correct ${num_correct == result.tests.length || true? 'correct-t' : num_correct >= Math.floor(result.tests.length/2) ? 'medium-t' : 'wrong-t'}`}>{num_correct}/{result.tests.length}</span>
     </div>
     <section>
-        {#each result.tests as test}
-            <Testcase {...test} />
+        <div class="sider">
+        {#each result.tests as test,i}
+            <Testcase {...test} {i} bind:inx  />
 
         {/each}
+    </div>
+    <div class="testwindow">
+        <Testwindow {...result.tests[inx]} />
+    </div>
     </section>
 </main>
 
 <style>
+    .testwindow{
+
+        width: calc(100% - 175px);
+
+    }
+    .sider{
+        display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    width: 175px;
+    overflow-y: auto;
+
+    padding: 10px;
+    border: 4px solid var(--section-f);
+    
+
+    border-radius: 25px 0px 0px 25px;
+
+    overflow-x: hidden;
+
+    }
 	.up {
 		transform: translateY(-100%);
 	}
 
     section{
         margin-top: 50px;
-        background: var(--section-f);
-        border-radius: 25px;
-        padding: 30px;
-        
-        overflow-y: scroll;
+    background: var(--section-f);
+    border-radius: 25px;
+    position: relative;
+    overflow-y: auto;
+    height: 400px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
     }
 	main {
 		position: fixed;
@@ -41,7 +76,7 @@
 		top: 100vh;
 		left: calc(40vw + 15px);
 		width: calc(60vw - 30px);
-		height: 55vh;
+		height: 50vh;
 		display: flex;
 		transition: 350ms ease-out;
 		padding: 40px;
@@ -85,27 +120,27 @@
         text-align: end;
     }
     .correct {
-		background: var(--green);
+		background: var(--correct);
 
 	}
 	.wrong {
-		background: var(--red);
+		background: var(--wrong);
 
 	}
     .medium{
-        background: var(--yellow);
+        background: var(--progress);
     }
 
     .correct-t {
 
-        color: var(--green);
+        color: var(--correct);
     }
     .wrong-t {
 
-        color: var(--red);
+        color: var(--wrong);
     }
     .medium-t {
 
-        color: var(--yellow);
+        color: var(--progress);
     }
 </style>

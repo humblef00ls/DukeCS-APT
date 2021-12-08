@@ -1,3 +1,6 @@
+<!-- Initialising the editor, as well as buttons. Returns loader while initializing -->
+
+
 <script >
 
     import { onMount } from 'svelte';

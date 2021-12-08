@@ -1,3 +1,6 @@
+<!-- 
+Page for selected question. Editor is the same editor used in VS code, Monaco Editor.
+Also uses components from lib. -->
 
 <script>
 	import { page } from '$app/stores';
@@ -20,14 +23,14 @@
 
 <main>
 	<section class="info">
-		<h1>{data.name}</h1>
-		<p class="descp">
-			{#each data.tags as tag}
-				<span class="tag">{tag}</span>
-			{/each}
-		</p>
-		<div class="question">
 
+		<div class="question">
+			<h1>{data.name}</h1>
+			<p class="descp">
+				{#each data.tags as tag}
+					<span class="tag">{tag}</span>
+				{/each}
+			</p>
 			<p class="prob">{data.problem}</p>
             </div>
             <div class="question">
@@ -54,14 +57,15 @@
 
 <style>
 	.tag{
-		background: #f5f5f5;
+		background: var(--back);
 		border-radius: 5px;
-		color: #333;
+		color: var(--text);
 		display: inline-block;
 		font-size: 12px;
 		font-weight: bold;
 		margin-right: 10px;
 		padding: 7px 10px;
+		opacity: .4;
 	
 	}
 	main {
@@ -87,9 +91,10 @@
 	}
 
 	.descp {
-		margin-top: 15px;
-		margin-bottom: 15px;
+
 		opacity: 0.65;
+		margin-top: 10px;
+		margin-bottom: 15px;
 	}
 	.question {
 		padding: 25px;
@@ -103,28 +108,19 @@
         margin-bottom: 30px;
 	}
     .prob,.constr{
-        margin-top: 15px;
-        margin-bottom: 15px;
+        margin-top: 10px;
+        margin-bottom: 10px;
 
     }
-    pre{
-        overflow-x: auto;
-  white-space: pre-wrap;
-  white-space: -moz-pre-wrap;
-  white-space: -pre-wrap;
-  white-space: -o-pre-wrap;
-  word-wrap: break-word;
-  padding: 10px;
-  font-family: 'Courier New', monospace;
-  font-size: .9rem;
-  font-weight: 500;
-
-    }
+    
 	li:nth-of-type(2n-1) pre{
 		background: var(--section-f)
 	}
 	h2{
 		margin-top: 10px;
+	}
+	h1{
+		margin: 0px;
 	}
 
 
