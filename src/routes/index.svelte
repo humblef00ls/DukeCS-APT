@@ -4,9 +4,11 @@ See lib to see the components rendered here  -->
 <script>
 	import { apts } from '$store/apts.js';
 	import { page } from '$app/stores';
-	import { lightMode } from '$store';
+	import { lightMode,mainTitle} from '$store';
 	import Submissions from '$lib/Submissions.svelte';
 	import {setColors} from '$lib/utils'
+import { onMount } from 'svelte';
+
 	let previous = false;
 
 	const toggleLight = () =>{
@@ -16,14 +18,43 @@ See lib to see the components rendered here  -->
 	}
 	let help = false
 	let tagview = false
+	let sptc = apts
+	let f = []
+
+	onMount(() => {
+		let allapts = apts.map(x=>x.apts).reduce((a,b)=>a.concat(b))
+		let tx= [...new Set(allapts.map(x=>x.tags).reduce((a,b)=>a.concat(b)))].sort()
+		
+		let reqb = {}
+		for(let i =0; i < tx.length; i++){
+			const obx = {
+				id: i,
+				name: tx[i],
+				info: "",
+				apts: [...new Map(allapts.filter(x=>x.tags.includes(tx[i])).map(v => [JSON.stringify(v), v])).values()]
+			}
+			if( tx[i] == 'Required')
+				reqb = obx
+			else
+				f.push(obx)
+		}
+		f.unshift(reqb)
+	});
+	$: if(tagview) {
+		sptc = f
+		console.log(f)
+	}
+	else{
+		sptc = apts	
+	}
 </script>
 
 <svelte:head>
-	<title>CompSci 101, Fall 2021 APTs</title>
+	<title>{$mainTitle}</title>
 </svelte:head>
 <main>
 	<header>
-		<h1>CompSci 101, Fall 2021 APTs</h1>
+		<h1>{$mainTitle}</h1>
 		<div class="btns">
 			<button on:click={toggleLight}>
 				{#if $lightMode}
@@ -114,7 +145,7 @@ See lib to see the components rendered here  -->
 	{:else}
 		<!-- else content here -->
 
-		{#each apts as apt}
+		{#each sptc as apt}
 			<!-- content here -->
 			<section>
 				<div class="title">

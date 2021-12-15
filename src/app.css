@@ -1,27 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');
 
 /* Main CSS file for global styles. An example on how to change fonts is commented out
 configured variables are initialised here*/
 
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');
+:root{--accent:#012a4a;--text:black;--text-inv:white;--back:#d3dceb;--section:rgba(242,242,242,1);--section-f:rgba(0,0,0,0.05);--correct:rgba(0, 179, 0, 1);--wrong:rgba(255, 17, 0, 1);--correct-l:rgba(0, 179, 0, .2);--wrong-l:rgba(255, 17, 0, .23);--progress:rgb(255, 224, 75)}
 
 
-
-:root{
-    --accent: #012a4a;
-    --text: black;
-    --text-inv: white;
-    --back: #d3dceb;
-    --section:rgba(242,242,242,1);
-    --section-f:rgba(0,0,0,0.05);
-    --correct:rgba(0, 179, 0, 1);
-    --wrong:rgba(255, 17, 0, 1);
-    --correct-l:rgba(0, 179, 0, .2);
-    --wrong-l:rgba(255, 17, 0, .23);
-    --progress:rgb(255, 224, 75);
-    /* @TODO: make better variable names */
-
-}
 pre{
     overflow-x: auto;
 white-space: pre-wrap;

@@ -1,6 +1,6 @@
 
 
-export const apts = [
+export let apts = [
 
     {
         id: "1",
